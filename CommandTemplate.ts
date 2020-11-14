@@ -14,14 +14,20 @@ export default class TempCommand extends Command {
             ratelimit: 0,
             clientPermissions: [],
             userPermissions: [],
-            channel: 'guild' // guild, dm
-
-
+            channel: 'guild',       // guild, dm
+            args: [
+                {
+                    id: "",
+                    type: "",
+                    // match: "rest",   // option
+                   // flag: []
+                }
+            ]
         });
     }
 
-    public async exec(message: Message) {
-        return message.util.reply('Pong!');
+    public async exec(message: Message): Promise<void> {
+
     }
 }
 
