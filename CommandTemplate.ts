@@ -1,5 +1,5 @@
 import { Command } from 'discord-akairo';
-import { Message } from 'discord.js'
+import { Message } from 'discord.js';
 
 export default class TempCommand extends Command {
     public constructor() {
