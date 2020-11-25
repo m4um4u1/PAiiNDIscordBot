@@ -10,6 +10,8 @@ RUN npm install
 
 COPY src /app/src
 
+COPY . ./
+
 RUN npm run build
 
 CMD ["node","./dist/PAiiNDiscordBot.js"]
