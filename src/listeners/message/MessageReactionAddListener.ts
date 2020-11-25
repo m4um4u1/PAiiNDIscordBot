@@ -24,11 +24,9 @@ export default class MessageReactionAddListener extends Listener {
             ${reaction.message.channel} bestätigt.`);
         }
         const { message, emoji } = reaction;
-        console.log(message);
 
         const dbChannels = await dbGuild.getChannelsById(message.guild.id);
         const dbRoles = await dbGuild.getRolesById(message.guild.id);
-        console.log(dbChannels.rulesChannel);
 
         if (message.channel.id === dbChannels.rulesChannel && emoji.name === this.client.config.emojis.true) {
             if (
