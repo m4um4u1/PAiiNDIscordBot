@@ -1,0 +1,33 @@
+{
+  "name": "paiindiscordbot",
+  "version": "1.0.0",
+  "description": "A simple Discordbot written in Typescript, based on my old discord js bot",
+  "main": "PAiiNDiscordBot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/PAiiNDiscordBot.ts",
+    "start": "ts-node src/PAiiNDiscordBot.ts",
+    "build": "tsc -p ."
+  },
+  "keywords": [],
+  "author": "PAiiN (Maurice Hansen)",
+  "license": "ISC",
+  "dependencies": {
+    "@giphy/js-fetch-api": "^1.8.0",
+    "@typegoose/typegoose": "^7.4.2",
+    "common-tags": "^1.8.0",
+    "discord-akairo": "github:discord-akairo/discord-akairo",
+    "discord.js": "12.5.1",
+    "mongoose": "^5.10.14",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.10.0",
+    "@types/node": "^14.14.7",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.6",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5",
+    "@types/common-tags": "^1.8.0"
+  }
+}
