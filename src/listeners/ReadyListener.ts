@@ -12,9 +12,9 @@ export default class ReadyListener extends Listener {
         this.client.logger.info(`Eingeloggt als ${this.client.user.tag}! (${this.client.user.id})`);
 
         await this.client.user.setPresence({
-            status: "dnd",
+            status: "online",
             activity: {
-                name: 'http://paiinweb.wtf/',
+                name: 'wie die Website gebaut wird',
                 type: 'WATCHING'
             }
         });

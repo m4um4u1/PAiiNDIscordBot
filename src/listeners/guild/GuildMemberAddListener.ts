@@ -2,6 +2,7 @@ import { Listener } from "discord-akairo";
 import dbGuild from "../../models/guild.model";
 import { GiphyFetch } from '@giphy/js-fetch-api';
 import { Channel, TextChannel } from "discord.js";
+require('isomorphic-fetch');
 
 export default class GuildMemberAddListener extends Listener {
     public constructor() {
@@ -29,7 +30,8 @@ export default class GuildMemberAddListener extends Listener {
         Dein ${member.guild.name} Discord-Team`);
 
 
-        await gf.search('hello', {sort: 'relevant', type: 'gifs'}).then((gifs) => {
+        await gf.search('hello', {sort: 'relevant', type: 'gifs'})
+            .then((gifs) => {
             let totalResponses = gifs.data.length;
             let responseIndex = Math.floor(Math.random() * 10 + 1) % totalResponses;
             let responseFinal = gifs.data[responseIndex];

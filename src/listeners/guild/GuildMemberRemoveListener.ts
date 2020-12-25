@@ -4,6 +4,7 @@ import { GiphyFetch } from "@giphy/js-fetch-api";
 import { Channel, MessageEmbed, TextChannel } from "discord.js";
 import { stripIndents } from 'common-tags';
 import Utilities from "../../structures/Utilities";
+require('isomorphic-fetch');
 
 export default class GuildMemberRemoveListener extends Listener {
     public constructor() {
