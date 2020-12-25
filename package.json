@@ -17,7 +17,7 @@
     "@typegoose/typegoose": "^7.4.5",
     "common-tags": "^1.8.0",
     "discord-akairo": "github:discord-akairo/discord-akairo",
-    "discord.js": "12.5.1",
+    "discord.js": "^12.5.1",
     "mongoose": "5.10.18",
     "winston": "^3.3.3"
   },
