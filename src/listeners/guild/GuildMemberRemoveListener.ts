@@ -64,7 +64,7 @@ export default class GuildMemberRemoveListener extends Listener {
                  **Discord tag:** ${member.user.tag}
                  **Beigetreten am:** ${joined}`,
          true
-     ).addField("Gekickt durch",
+     ).addField("Gekickt durch:",
          stripIndents`**ID:** ${executor.id}
                 **Benutzername:** ${executor}
                 **Grund:** ${kickReason}`)
