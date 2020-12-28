@@ -55,7 +55,7 @@ export default class TempCommand extends Command {
                  **Discord tag:** ${args.userToReport.user.tag}
                  **Beigetreten am:** ${joined}`,
             true
-        ).addField("Gemeldet durch",
+        ).addField("Gemeldet durch:",
             stripIndents`**ID:** ${message.member.id}
                 **Benutzername:** ${message.member}
                 **Grund:** ${args.reason}`)
