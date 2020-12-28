@@ -35,7 +35,7 @@ export default class GuildMemberAddListener extends Listener {
             let totalResponses = gifs.data.length;
             let responseIndex = Math.floor(Math.random() * 10 + 1) % totalResponses;
             let responseFinal = gifs.data[responseIndex];
-            (wlch as TextChannel).send(`Willkommen, ${member} auf unserem Server, bitte vergiss nicht die Regeln ${(rlch as TextChannel)} zu bestätigen!`, {
+            (wlch as TextChannel).send(`Willkommen, ${member} auf unserem Server, bitte vergiss nicht die Regeln in ${(rlch as TextChannel)} zu bestätigen!`, {
                 files: [responseFinal.images.fixed_height.url]
             });
         }).catch((e) => this.client.logger.error("Fuckin giphy error mate:" + e))
