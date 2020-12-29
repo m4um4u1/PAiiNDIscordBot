@@ -38,13 +38,13 @@ export default class GuildMemberRemoveListener extends Listener {
                 let totalResponses = gifs.data.length;
                 let responseIndex = Math.floor(Math.random() * 10 + 1) % totalResponses;
                 let responseFinal = gifs.data[responseIndex];
-                (wlch as TextChannel).send(`${member} hat uns leider verlassen :sob:`, {
+                (wlch as TextChannel).send(`${member} hat uns verlassen, bitte komm bald wieder :hushed:`, {
                     files: [responseFinal.images.fixed_height.url]
                 });
             })
             .catch((e) => this.client.logger.error("Fuckn giphy error mate:" + e));
 
-  if ( kickLog && target.id === member.user.id) {
+  if ( kickLog && target.id === member.user.id ) {
      const joined: string = await Utilities.formatDate(member.joinedAt);
 
      let kickReason;
