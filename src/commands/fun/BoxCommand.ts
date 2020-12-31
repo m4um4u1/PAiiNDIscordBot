@@ -1,7 +1,7 @@
 import { Command } from 'discord-akairo';
-import {Message, MessageEmbed} from 'discord.js';
+import { Message, MessageEmbed } from 'discord.js';
 
-export default class TempCommand extends Command {
+export default class BoxCommand extends Command {
     public constructor() {
         super('box', {
             aliases: ['box', 'schlagen'],

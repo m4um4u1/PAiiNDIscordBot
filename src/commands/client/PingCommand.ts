@@ -17,7 +17,7 @@ export default class PingCommand extends Command {
 
     public async exec(message): Promise<void> {
         if (message.deletable) await message.delete()
-        const sent = await message.reply('Pong!');
+        const sent = await message.util.reply('Pong!');
         const timeDiff: number = (sent.editedAt || sent.createdAt) - (message.editedAt || message.createdAt);
         return message.util.send([
             `🔂 **Paketumlaufzeit**: ${timeDiff} ms`,

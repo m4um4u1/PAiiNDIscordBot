@@ -1,7 +1,7 @@
 import { Listener } from "discord-akairo";
 import dbGuild from "../../models/guild.model";
-import {MessageEmbed, ReactionManager, TextChannel, User} from "discord.js";
-import {stripIndents} from "common-tags";
+import { MessageEmbed, TextChannel, User } from "discord.js";
+import { stripIndents } from "common-tags";
 import Utilities from "../../structures/Utilities";
 
 export default class MessageReactionAddListener extends Listener {
@@ -13,7 +13,6 @@ export default class MessageReactionAddListener extends Listener {
     }
 
     public async exec(reaction, user: User) {
-
         if (reaction.message.partial) {
             try {
                 await reaction.message.fetch();
@@ -67,7 +66,6 @@ export default class MessageReactionAddListener extends Listener {
 
                 await (logChannel as TextChannel).send(logMessage);
             }
-
         }
     }
 }

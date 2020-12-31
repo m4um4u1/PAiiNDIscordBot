@@ -2,7 +2,7 @@ import { AkairoClient, CommandHandler, ListenerHandler } from 'discord-akairo';
 import { Logger } from 'winston';
 import { Message } from 'discord.js';
 import { join } from 'path';
-import { Config } from './Config'
+import { Config } from './Config';
 
 declare module 'discord-akairo' {
     export interface AkairoClient {
@@ -16,7 +16,6 @@ declare module 'discord-akairo' {
 export default class PAiiNDiscordClient extends AkairoClient {
     public config: typeof Config = Config;
     public logger: Logger;
-
 
     public listenerHandler: ListenerHandler = new ListenerHandler(this,{
         directory: join(__dirname, "..", "listeners")
