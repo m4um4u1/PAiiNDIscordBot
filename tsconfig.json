@@ -21,7 +21,7 @@
   },
     "include": [
       "src/**/*",
-      ".env"
+      "dist/.env"
     ],
     "exclude": [
       "node_modules"

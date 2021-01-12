@@ -14,7 +14,7 @@ export default class ReadyListener extends Listener {
         await this.client.user.setPresence({
             status: "online",
             activity: {
-                name: 'wie die Website gebaut wird',
+                name: 'https://paiinweb.wtf',
                 type: 'WATCHING'
             }
         });

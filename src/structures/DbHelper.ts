@@ -29,6 +29,4 @@ export default class dbHelper {
             this.logger.error(`Mongoose connection error: ${err.stack}`);
         });
     };
-
-
 };

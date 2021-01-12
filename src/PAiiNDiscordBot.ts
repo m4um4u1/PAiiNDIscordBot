@@ -15,5 +15,5 @@ const mongo = new DbHelper(logger);
 
 const client: PAiiNDiscordClient = new PAiiNDiscordClient(logger);
 
-mongo.init(client.config.mongouri).then(() => logger.info("Mongo wird gestartet!"))
+mongo.init(client.config.mongouri).then(() => logger.info("Mongo wird gestartet!"));
 client.start().then(() => logger.info("PAiiNDiscordBot wird gestartet!"));
