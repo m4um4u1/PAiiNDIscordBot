@@ -49,7 +49,7 @@ class Guild {
         return guild.channels;
     }
 
-    public static async getRolesById (this: ReturnModelType<typeof Guild>, id: string) {
+    public static async getRolesById (this: ReturnModelType<any>, id: string) {
         const guild = await this.findOne({ guildId: id });
         return guild.roles;
     }
