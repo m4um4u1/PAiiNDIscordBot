@@ -19,6 +19,7 @@
     "discord-akairo": "github:discord-akairo/discord-akairo",
     "discord.js": "^12.5.1",
     "mongoose": "5.10.18",
+    "node-twitch": "^0.4.1",
     "winston": "^3.3.3"
   },
   "devDependencies": {
