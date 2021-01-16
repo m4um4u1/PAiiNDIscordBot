@@ -24,6 +24,8 @@ export default class MessageReactionAddListener extends Listener {
 
         const { message, emoji } = reaction;
 
+        const member = message.guild.members.cache.get(user.id);
+
         const dbChannels = await dbGuild.getChannelsById(message.guild.id);
         const dbRoles = await dbGuild.getRolesById(message.guild.id);
 
@@ -31,21 +33,17 @@ export default class MessageReactionAddListener extends Listener {
             return role.id === dbRoles.defaultRole;
         });
 
-        const memberRole = message.member.roles.cache.find((role) => {
+        const memberRole = member.roles.cache.find((role) => {
             return role.id === dbRoles.defaultRole;
         });
 
-        console.log(memberRole === guildRole);
-
         if (message.channel.id === dbChannels.rulesChannel && emoji.name === this.client.config.emojis.true) {
-
 
             if (memberRole === guildRole) {
                 await message.channel
                     .send("Du hast die Regeln schon akzeptiert :yum:")
                     .then(m => m.delete({ timeout: 10000 }));
             } else {
-                let member = message.member;
 
                 member.roles.add(guildRole).catch((err) => this.client.logger.error(err));
                 await message.channel
