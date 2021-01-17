@@ -28,10 +28,12 @@ export default class TempCommand extends Command {
             await message.delete();
         }
 
+        const possibilities = [`hat ${args.member} im Boxring besiegt ${this.client.config.emojis.drunk}`, `wurde von ${args.member} im Boxring besiegt ${this.client.config.emojis.drunk}`];
+
         const replyMessage = new MessageEmbed({
             color: "AQUA"
         })
-            .setDescription(`hat ${args.member} im Boxring besiegt ${this.client.config.emojis.drunk}`)
+            .setDescription(possibilities[Math.floor(Math.random() * possibilities.length)])
             .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL()}`);
 
         await message.util.send(replyMessage);
