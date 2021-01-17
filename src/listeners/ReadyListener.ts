@@ -9,7 +9,7 @@ export default class ReadyListener extends Listener {
     }
 
     public async exec() {
-     let activities = ['https://paiinweb.wtf', 'Made and hosted by PAiiN', `${this.client.channels.cache.size} channels`, `${this.client.guilds.cache} servers`, `${this.client.users.cache} users`], i=0;
+     let activities = ['https://paiinweb.wtf', 'Made by PAiiN', `${this.client.channels.cache.size} channels!`, `${this.client.guilds.cache.size} servers!`, `${this.client.users.cache.size} users!`], i=0;
         this.client.logger.info(`Eingeloggt als ${this.client.user.tag}! (${this.client.user.id})`);
 
         setInterval(async () => {
