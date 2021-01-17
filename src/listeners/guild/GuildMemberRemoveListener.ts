@@ -38,9 +38,16 @@ export default class GuildMemberRemoveListener extends Listener {
                 let totalResponses = gifs.data.length;
                 let responseIndex = Math.floor(Math.random() * 10 + 1) % totalResponses;
                 let responseFinal = gifs.data[responseIndex];
-                (wlch as TextChannel).send(`${member} hat uns verlassen, bitte komm bald wieder :hushed:`, {
-                    files: [responseFinal.images.fixed_height.url]
-                });
+                const replyMessage = new MessageEmbed({
+                    color: "WHITE",
+                    title: 'Goodbye :wave:'
+                })
+                    .setDescription([
+                        `${member} hat uns verlassen, bitte komm bald wieder :hushed:`
+                    ])
+                    .setImage(responseFinal.images.fixed_height.url)
+                    .setTimestamp();
+                (wlch as TextChannel).send(replyMessage);
             })
             .catch((e) => this.client.logger.error("Fuckn giphy error mate:" + e));
 
