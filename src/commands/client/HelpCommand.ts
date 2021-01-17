@@ -25,7 +25,7 @@ export default class HelpCommand extends Command {
     }
 
     public async exec(message: Message, { command }: { command: Command }): Promise<Message | Message[]> {
-        const prefix = dbGuild.getPrefixById(message.guild.id);
+        const prefix = await dbGuild.getPrefixById(message.guild.id);
 
         if (!command) {
             const embed = new MessageEmbed()
