@@ -9,10 +9,10 @@ export default class HelpCommand extends Command {
         super('help', {
             aliases: ['help'],
             description: {
-                content: 'Displays a list of available command, or detailed information for a specific command.',
+                content: 'Zeigt eine Liste aller commands, oder detaillierte Informationen eines Commands.',
                 usage: '[command]'
             },
-            category: 'util',
+            category: 'client',
             clientPermissions: ['EMBED_LINKS'],
             ratelimit: 2,
             args: [
@@ -30,7 +30,7 @@ export default class HelpCommand extends Command {
         if (!command) {
             const embed = new MessageEmbed()
                 .setColor('WHITE')
-                .addField('❯ Commands', stripIndents`Eine liste aller commands
+                .addField('❯ Commands', stripIndents`Eine liste aller commands.
                     Für genauere hilfe, schreibe \`${prefix}help <command>\`
                 `);
 
