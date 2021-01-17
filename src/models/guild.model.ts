@@ -44,7 +44,7 @@ class Guild {
     @prop({ required: true })
     public channels!: Channels;
 
-    public static async getChannelsById (this: ReturnModelType<typeof Guild>, id: string) {
+    public static async getChannelsById (this: ReturnModelType<any>, id: string) {
         const guild = await this.findOne({ guildId: id });
         return guild.channels;
     }
@@ -54,7 +54,7 @@ class Guild {
         return guild.roles;
     }
 
-    public static async getPrefixById (this: ReturnModelType<typeof Guild>, id: string) {
+    public static async getPrefixById (this: ReturnModelType<any>, id: string) {
         const guild = await this.findOne({ guildId: id });
         return guild.prefix;
     }

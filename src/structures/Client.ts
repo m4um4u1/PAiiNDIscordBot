@@ -2,7 +2,8 @@ import { AkairoClient, CommandHandler, ListenerHandler } from 'discord-akairo';
 import { Logger } from 'winston';
 import { Message } from 'discord.js';
 import { join } from 'path';
-import { Config } from './Config'
+import { Config } from './Config';
+import dbGuild from "../models/guild.model";
 
 declare module 'discord-akairo' {
     export interface AkairoClient {
@@ -24,7 +25,11 @@ export default class PAiiNDiscordClient extends AkairoClient {
 
     public commandHandler: CommandHandler = new CommandHandler(this,{
         directory: join(__dirname, "..", "commands"),
-        prefix: "!",
+        prefix: (message) => {
+            if (message.guild) {
+                    // The third param is the default.
+            return dbGuild.getPrefixById(message.guild.id);
+            }},
         allowMention: true,
         handleEdits: true,
         commandUtil: true,
