@@ -54,6 +54,7 @@ export default class RpsCommand extends Command {
                 return "Du hast verloren!";
             }
         }
+
     }
 }
 

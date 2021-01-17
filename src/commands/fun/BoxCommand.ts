@@ -12,6 +12,7 @@ export default class TempCommand extends Command {
                 examples: ['@PAiiN']
             },
             clientPermissions: ["SEND_MESSAGES"],
+            userPermissions: ["SEND_MESSAGES"],
             channel: 'guild',
             args: [
                 {
