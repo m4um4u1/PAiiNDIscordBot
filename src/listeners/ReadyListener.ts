@@ -9,15 +9,14 @@ export default class ReadyListener extends Listener {
     }
 
     public async exec() {
-     const activities = ['https://paiinweb.wtf', 'Made by PAiiN', 'Hosted by PAiiN'];
+     let activities = ['https://paiinweb.wtf', 'Made and hosted by PAiiN', `${this.client.channels.cache.size} channels`, `${this.client.guilds.cache} servers`, `${this.client.users.cache} users`], i=0;
         this.client.logger.info(`Eingeloggt als ${this.client.user.tag}! (${this.client.user.id})`);
 
         setInterval(async () => {
-            const index = Math.floor(Math.random() * (activities.length - 1) + 1);
             await this.client.user.setPresence({
                 status: "online",
                 activity: {
-                    name: activities[index],
+                    name: `${activities[i++ % activities.length]}`,
                     type: 'WATCHING'
                 }
             });
