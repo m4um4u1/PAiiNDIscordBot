@@ -11,12 +11,9 @@ export default class GuildCreateListener extends Listener {
 
     public async exec(guild) {
         try {
-            await dbGuild.create({
-                guildId: guild.id,
-                guildName: guild.name,
-                joinedAt: guild.joinedAt,
-                roles: {},
-                channels: {}
+            await dbGuild.findOneAndUpdate({guildId: guild.id},
+                {
+                guildName: guild.name
             });
 
             this.client.logger.info(`Ich wurde zu ${guild.guildName} eingeladen`)
