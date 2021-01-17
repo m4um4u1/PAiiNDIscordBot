@@ -25,11 +25,12 @@ export default class PAiiNDiscordClient extends AkairoClient {
 
     public commandHandler: CommandHandler = new CommandHandler(this,{
         directory: join(__dirname, "..", "commands"),
-        prefix: (message) => {
+        prefix: async (message) => {
             if (message.guild) {
-                    // The third param is the default.
-            return dbGuild.getPrefixById(message.guild.id);
-            }},
+                // The third param is the default.
+                return await dbGuild.getPrefixById(message.guild.id);
+            }
+        },
         allowMention: true,
         handleEdits: true,
         commandUtil: true,
