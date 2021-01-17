@@ -11,8 +11,8 @@ export default class TempCommand extends Command {
             category: 'moderation',
             description: {
                 content: 'Hiermit kannst du eine Mitglied reporten wenn er gegen Regeln verstößt',
-                usage: 'report [ Mitlgied ] [ Grund ]',
-                examples: ['report @PAiiN he is to cool for this server' ]
+                usage: '[ Mitlgied ] [ Grund ]',
+                examples: ['@PAiiN he is to cool for this server' ]
             },
             clientPermissions: ["SEND_MESSAGES"],
             userPermissions: ["SEND_MESSAGES"],

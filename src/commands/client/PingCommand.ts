@@ -8,8 +8,8 @@ export default class PingCommand extends Command {
             category: 'client',
             description: {
                 content: 'Zeigt die Latenzen vom Bot an',
-                usage: 'ping',
-                examples: ['ping']
+                usage: '',
+                examples: ['']
             },
             ratelimit: 5,
             clientPermissions: ["SEND_MESSAGES"]

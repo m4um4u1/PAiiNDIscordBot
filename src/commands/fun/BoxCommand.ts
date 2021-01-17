@@ -8,8 +8,8 @@ export default class TempCommand extends Command {
             category: 'fun',
             description: {
                 content: 'Boxe ein Mitglied in die Fresse',
-                usage: 'box [ Mitglied ]',
-                examples: ['box @PAiiN']
+                usage: '[ Mitglied ]',
+                examples: ['@PAiiN']
             },
             clientPermissions: ["SEND_MESSAGES"],
             channel: 'guild',

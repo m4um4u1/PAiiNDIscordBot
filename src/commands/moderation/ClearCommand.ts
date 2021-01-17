@@ -8,8 +8,8 @@ export default class ClearCommand extends Command {
             category: 'moderation',
             description: {
                 content: 'Löscht eine Anzahl Nachrichten',
-                usage: 'clear [ anzahl ]',
-                examples: ['clear 10']
+                usage: '[ anzahl ]',
+                examples: ['10']
             },
             ratelimit: 5,
             clientPermissions: ["SEND_MESSAGES", "MANAGE_MESSAGES"],

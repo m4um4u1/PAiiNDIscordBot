@@ -9,8 +9,8 @@ export default class UptimeCommand extends Command {
             category: 'client',
             description: {
                 content: 'Zeigt wie lange der Bot schon ohne unterbrechung Online ist',
-                usage: 'uptime',
-                examples: ['uptime']
+                usage: '',
+                examples: ['']
             },
             ratelimit: 1,
             clientPermissions: ["SEND_MESSAGES"],

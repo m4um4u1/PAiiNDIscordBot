@@ -9,8 +9,7 @@ export default class RpsCommand extends Command {
             category: 'fun',
             description: {
                 content: 'Spiele Stein Schere Papier gegen den Bot',
-                usage: 'rps',
-                examples: ['rps', 'ssp']
+                usage: ''
             },
             ratelimit: 10,
             clientPermissions: ["SEND_MESSAGES"],
