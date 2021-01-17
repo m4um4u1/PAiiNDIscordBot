@@ -12,7 +12,8 @@ export default class PingCommand extends Command {
                 examples: ['']
             },
             ratelimit: 5,
-            clientPermissions: ["SEND_MESSAGES"]
+            clientPermissions: ["SEND_MESSAGES"],
+            userPermissions: ["ADMINISTRATOR", "MANAGE_GUILD"]
         });
     }
 
