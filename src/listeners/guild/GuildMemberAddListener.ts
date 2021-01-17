@@ -27,7 +27,7 @@ export default class GuildMemberAddListener extends Listener {
         })
             .setDescription([`Hallo ${member}, willkommen bei ${member.guild.name}!\n
         Lese dir am besten gleich am Anfang die Regeln durch und betätige mit ${this.client.config.emojis.true} in ${(rlch as TextChannel)}, 
-        um deine Mitgliedsrolle zu erhalten und Zugang zu allen Kanälen zu bekommen :relaxed:
+        um deine Mitgliedsrolle zu erhalten und Zugang zu den Kanälen zu bekommen :relaxed:
         Solltest du Fragen haben, melde dich einfach bei einem Moderator oder versuche es in einem der Support-Kanäle.
         
         Viel Spaß bei uns,\n

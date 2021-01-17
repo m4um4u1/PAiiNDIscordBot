@@ -40,13 +40,13 @@ export default class MessageReactionAddListener extends Listener {
         if (message.channel.id === dbChannels.rulesChannel && emoji.name === this.client.config.emojis.true) {
 
             if (memberRole === guildRole) {
-                await message.channel
+                await member
                     .send("Du hast die Regeln schon akzeptiert :yum:")
                     .then(m => m.delete({ timeout: 10000 }));
             } else {
 
                 member.roles.add(guildRole).catch((err) => this.client.logger.error(err));
-                await message.channel
+                await member
                     .send(`Du hast die Regeln akzeptiert, viel Spaß auf ${message.guild.name}. ${this.client.config.emojis.happy}`)
                     .then(m => m.delete({ timeout: 10000 }));
                 this.client.logger.info(`${user.username} hat die Regeln auf ${reaction.message.guild.name} im Kanal 
