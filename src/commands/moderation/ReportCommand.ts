@@ -10,7 +10,7 @@ export default class TempCommand extends Command {
             aliases: ['report'],
             category: 'moderation',
             description: {
-                content: 'Hiermit kannst du eine Mitglied reporten wenn er gegen Regeln verstößt',
+                content: 'Hiermit kannst du ein Mitglied reporten wenn er gegen Regeln verstößt',
                 usage: '[ Mitglied ] [ Grund ]',
                 examples: ['@PAiiN he is to cool for this server' ]
             },
