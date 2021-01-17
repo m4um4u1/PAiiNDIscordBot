@@ -1,4 +1,5 @@
 import { Command } from 'discord-akairo';
+import {MessageEmbed} from "discord.js";
 
 export default class PingCommand extends Command {
     public constructor() {
@@ -19,10 +20,16 @@ export default class PingCommand extends Command {
         if (message.deletable) await message.delete()
         const sent = await message.reply('Pong!');
         const timeDiff: number = (sent.editedAt || sent.createdAt) - (message.editedAt || message.createdAt);
-        return message.util.send([
-            `🔂 **Paketumlaufzeit**: ${timeDiff} ms`,
-            `💟 **Ping**: ${Math.round(this.client.ws.ping)} ms`
-        ]);
+        const replyMessage = new MessageEmbed({
+            color: "AQUA",
+            title: 'Ping'
+        })
+            .setDescription([
+                `🔂 **Paketumlaufzeit**: ${timeDiff} ms`,
+                `💟 **Ping**: ${Math.round(this.client.ws.ping)} ms`
+            ]);
+        if(sent.deletable) await sent.delete();
+        return message.util.send(replyMessage);
     }
 }
 
