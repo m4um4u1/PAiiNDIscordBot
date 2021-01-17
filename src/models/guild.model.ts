@@ -53,6 +53,11 @@ class Guild {
         const guild = await this.findOne({ guildId: id });
         return guild.roles;
     }
+
+    public static async getPrefixById (this: ReturnModelType<typeof Guild>, id: string) {
+        const guild = await this.findOne({ guildId: id });
+        return guild.prefix;
+    }
 }
 
 const dbGuild = getModelForClass(Guild);
