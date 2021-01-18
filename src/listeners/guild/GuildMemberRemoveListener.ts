@@ -43,7 +43,7 @@ export default class GuildMemberRemoveListener extends Listener {
                     title: 'Goodbye :wave:'
                 })
                     .setDescription([
-                        `${member} hat uns verlassen, bitte komm bald wieder :hushed:`
+                        `${member.user} hat uns verlassen, bitte komm bald wieder :hushed:`
                     ])
                     .setImage(responseFinal.images.fixed_height.url)
                     .setTimestamp();
