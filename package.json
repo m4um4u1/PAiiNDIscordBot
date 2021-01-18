@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@giphy/js-fetch-api": "^2.0.1",
-    "@typegoose/typegoose": "^7.4.5",
+    "@typegoose/typegoose": "^7.4.7",
     "common-tags": "^1.8.0",
     "discord-akairo": "github:discord-akairo/discord-akairo",
     "discord.js": "^12.5.1",
