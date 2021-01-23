@@ -10,7 +10,8 @@ export default class HelpCommand extends Command {
             aliases: ['help'],
             description: {
                 content: 'Zeigt eine Liste aller commands, oder detaillierte Informationen eines Commands.',
-                usage: '[command]'
+                usage: '[command]',
+                example: ['ping', 'box']
             },
             category: 'client',
             clientPermissions: ['EMBED_LINKS'],

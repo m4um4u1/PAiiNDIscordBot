@@ -1,35 +1,35 @@
-import { prop, getModelForClass, ReturnModelType } from '@typegoose/typegoose';
+import { prop, getModelForClass } from '@typegoose/typegoose';
 
 class Settings {
 
     @prop({ default: true })
-    public welcomeMessages: boolean;
+    public welcomeMessages?: boolean;
 
     @prop({ default: true })
-    public welcomeDmMessage: boolean;
+    public welcomeDmMessage?: boolean;
 
     @prop({ default: true })
-    public goodbyeMessages: boolean;
+    public goodbyeMessages?: boolean;
 
     @prop({ default: true })
-    public PingCommand: boolean;
+    public pingCommand?: boolean;
 
     @prop({ default: true })
-    public UptimeCommand: boolean;
+    public uptimeCommand?: boolean;
 
     @prop({ default: true })
-    public BoxCommand: boolean;
+    public boxCommand?: boolean;
 
     @prop({ default: true })
-    public RpsCommand: boolean;
+    public rpsCommand?: boolean;
 
     @prop({ default: true })
-    public ClearCommand: boolean;
+    public clearCommand?: boolean;
 
     @prop({ default: true })
-    public ReportCommand: boolean;
+    public reportCommand?: boolean;
 
-    @prop({ default: null })
+    @prop({required: true})
     public guildId!: string;
 }
 
