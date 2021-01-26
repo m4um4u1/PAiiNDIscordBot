@@ -20,8 +20,9 @@ export default class PingCommand extends Command {
 
     public async exec(message): Promise<void> {
         const settings = await botSettings.findOne({guildId: message.guild.id});
+
         if (settings.pingCommand) {
-        if (message.deletable) await message.delete();
+
 
         const sent = await message.util.reply('Pong!');
         const timeDiff: number = (sent.editedAt || sent.createdAt) - (message.editedAt || message.createdAt);
@@ -34,7 +35,9 @@ export default class PingCommand extends Command {
                 `💟 **Ping**: ${Math.round(this.client.ws.ping)} ms`
             ]);
         if(sent.deletable) await sent.delete();
+        if (message.deletable) await message.delete();
         return message.util.send(replyMessage);
+
     }
     }
 }
