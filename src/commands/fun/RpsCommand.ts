@@ -1,6 +1,7 @@
 import { Command } from 'discord-akairo';
 import { Message, MessageEmbed } from 'discord.js';
 import Utilities from "../../structures/Utilities";
+import botSettings from "../../models/botsettings.model";
 
 export default class RpsCommand extends Command {
     public constructor() {
@@ -19,8 +20,10 @@ export default class RpsCommand extends Command {
     }
 
     public async exec(message: Message): Promise<void> {
+        const settings = await botSettings.findOne({ guildId: message.guild.id });
         const chooseArr: string[] = ["🗻", "📰", "✂"];
 
+        if(settings.rpsCommand){
         const embed: MessageEmbed = new MessageEmbed()
             .setColor("#ffffff")
             .setFooter(
@@ -57,4 +60,4 @@ export default class RpsCommand extends Command {
 
     }
 }
-
+}

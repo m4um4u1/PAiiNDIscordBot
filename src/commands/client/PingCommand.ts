@@ -1,5 +1,6 @@
 import { Command } from 'discord-akairo';
-import {MessageEmbed} from "discord.js";
+import { MessageEmbed } from "discord.js";
+import botSettings from '../../models/botsettings.model';
 
 export default class PingCommand extends Command {
     public constructor() {
@@ -13,16 +14,19 @@ export default class PingCommand extends Command {
             },
             ratelimit: 5,
             clientPermissions: ["SEND_MESSAGES"],
-            userPermissions: ["ADMINISTRATOR", "MANAGE_GUILD"]
+            userPermissions: ["MANAGE_GUILD"]
         });
     }
 
     public async exec(message): Promise<void> {
-        if (message.deletable) await message.delete()
-        const sent = await message.reply('Pong!');
+        const settings = await botSettings.findOne({guildId: message.guild.id});
+        if (settings.pingCommand) {
+        if (message.deletable) await message.delete();
+
+        const sent = await message.util.reply('Pong!');
         const timeDiff: number = (sent.editedAt || sent.createdAt) - (message.editedAt || message.createdAt);
         const replyMessage = new MessageEmbed({
-            color: "AQUA",
+            color: "YELLOW",
             title: 'Ping'
         })
             .setDescription([
@@ -31,6 +35,7 @@ export default class PingCommand extends Command {
             ]);
         if(sent.deletable) await sent.delete();
         return message.util.send(replyMessage);
+    }
     }
 }
 
