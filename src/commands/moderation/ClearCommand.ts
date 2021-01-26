@@ -29,9 +29,7 @@ export default class ClearCommand extends Command {
         const settings = await botSettings.findOne({guildId: message.guild.id});
 
         if(settings.clearCommand) {
-        if (message.deletable) {
-            await message.delete();
-        }
+
 
         if (args.amount <= 0) {
             return message.util
@@ -54,6 +52,10 @@ export default class ClearCommand extends Command {
             )
             .then(m => m.delete({ timeout: 5000 }))
             .catch(err => this.client.logger.error(`Irgendwas ist schief gelaufen -> ${err}`));
+
+            if (message.deletable) {
+                await message.delete();
+            }
     }
 }
 }
