@@ -12,7 +12,7 @@ export default class dbHelper {
         mongoose
             .connect(
                 db,
-                { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true,
+                { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true
                 }
             )
             .then(() => {
