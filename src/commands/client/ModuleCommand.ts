@@ -106,10 +106,10 @@ export default class ModuleCommand extends Command {
                 break;
             case 'clear':
                 if(args.status === 'enable') {
-                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {goodbyeMessages: true});
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {clearCommand: true});
                     await message.util.send('Command "clear" wurde aktiviert!');
                 } else if (args.status === 'disable') {
-                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {goodbyeMessages: false});
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {clearCommand: false});
                     await message.util.send('Command "clear" wurde deaktiviert!');
                 }
                 break;
