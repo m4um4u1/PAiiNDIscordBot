@@ -36,9 +36,6 @@ export default class ReportCommand extends Command {
         const settings = await botSettings.findOne({ guildId: message.guild.id });
 
         if(settings.reportCommand) {
-        if (message.deletable) {
-            await message.delete();
-        }
 
         const dbChannels = await dbGuild.getChannelsById(message.guild.id);
         const logChannel = message.guild.channels.cache.get(dbChannels.logsChannel);
@@ -75,6 +72,9 @@ export default class ReportCommand extends Command {
             .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL()}`);
 
         await message.util.send(replyMessage);
+            if (message.deletable) {
+                await message.delete();
+            }
     }
 }
 }
