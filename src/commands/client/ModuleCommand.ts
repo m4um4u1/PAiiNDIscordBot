@@ -61,10 +61,10 @@ export default class ModuleCommand extends Command {
                 break;
             case 'welcomeDmMessage':
                 if(args.status === 'enable') {
-                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {welcomeDmMessages: true});
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {welcomeDmMessage: true});
                     await message.util.send('Die privaten "Willkommensnachrichten" wurden aktiviert!');
                 } else if (args.status === 'disable'){
-                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {welcomeDmMessages: false});
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {welcomeDmMessage: false});
                     await message.util.send('Die privaten "Willkommensnachrichten" wurden deaktiviert!');
                 }
                 break;
