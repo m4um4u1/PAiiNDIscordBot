@@ -23,7 +23,6 @@ export default class PingCommand extends Command {
 
         if (settings.pingCommand) {
 
-
         const sent = await message.util.reply('Pong!');
         const timeDiff: number = (sent.editedAt || sent.createdAt) - (message.editedAt || message.createdAt);
         const replyMessage = new MessageEmbed({
@@ -37,7 +36,6 @@ export default class PingCommand extends Command {
         if(sent.deletable) await sent.delete();
         if (message.deletable) await message.delete();
         return message.util.send(replyMessage);
-
     }
     }
 }
