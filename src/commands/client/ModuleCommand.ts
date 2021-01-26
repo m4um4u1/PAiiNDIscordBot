@@ -32,6 +32,13 @@ export default class ModuleCommand extends Command {
     }
 
     public async exec(message: Message, args): Promise<void> {
+        const settings = await botSettings.findOne({ guildId: message.guild.id });
+
+        if(!settings) {
+            await botSettings.create({
+                guildId: message.guild.id
+            })
+        }
 
         switch(args.module) {
             case 'ping':
