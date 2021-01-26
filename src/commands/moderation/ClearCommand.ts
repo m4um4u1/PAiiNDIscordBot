@@ -1,5 +1,6 @@
 import { Command } from 'discord-akairo';
 import { Message, TextChannel } from 'discord.js';
+import botSettings from "../../models/botsettings.model";
 
 export default class ClearCommand extends Command {
     public constructor() {
@@ -25,6 +26,9 @@ export default class ClearCommand extends Command {
     }
 
     public async exec(message: Message, args): Promise<Message> {
+        const settings = await botSettings.findOne({guildId: message.guild.id});
+
+        if(settings.clearCommand) {
         if (message.deletable) {
             await message.delete();
         }
@@ -52,4 +56,4 @@ export default class ClearCommand extends Command {
             .catch(err => this.client.logger.error(`Irgendwas ist schief gelaufen -> ${err}`));
     }
 }
-
+}

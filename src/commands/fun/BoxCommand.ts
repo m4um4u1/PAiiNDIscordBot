@@ -1,5 +1,6 @@
 import { Command } from 'discord-akairo';
 import {Message, MessageEmbed} from 'discord.js';
+import botSettings from "../../models/botsettings.model";
 
 export default class TempCommand extends Command {
     public constructor() {
@@ -24,7 +25,8 @@ export default class TempCommand extends Command {
     }
 
     public async exec(message: Message, args): Promise<void> {
-
+        const settings = await botSettings.findOne({ guildId: message.guild.id });
+        if(settings.boxCommand) {
         if (message.deletable) {
             await message.delete();
         }
@@ -39,4 +41,5 @@ export default class TempCommand extends Command {
 
         await message.util.send(replyMessage);
     }
+}
 }

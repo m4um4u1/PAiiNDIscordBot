@@ -3,8 +3,9 @@ import {Message, MessageEmbed, TextChannel} from 'discord.js';
 import dbGuild from "../../models/guild.model";
 import {stripIndents} from "common-tags";
 import Utilities from "../../structures/Utilities";
+import botSettings from "../../models/botsettings.model";
 
-export default class TempCommand extends Command {
+export default class ReportCommand extends Command {
     public constructor() {
         super('report', {
             aliases: ['report'],
@@ -32,6 +33,9 @@ export default class TempCommand extends Command {
     }
 
     public async exec(message: Message, args): Promise<Message> {
+        const settings = await botSettings.findOne({ guildId: message.guild.id });
+
+        if(settings.reportCommand) {
         if (message.deletable) {
             await message.delete();
         }
@@ -73,4 +77,4 @@ export default class TempCommand extends Command {
         await message.util.send(replyMessage);
     }
 }
-
+}

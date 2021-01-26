@@ -22,7 +22,7 @@ export default class GuildCreateListener extends Listener {
 
             await botSettings.create({
                 guildId: guild.id
-            })
+            });
 
             this.client.logger.info(`Ich wurde zu ${guild.guildName} eingeladen`)
         } catch (e) {

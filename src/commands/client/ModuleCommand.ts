@@ -14,7 +14,7 @@ export default class ModuleCommand extends Command {
             },
             ratelimit: 0,
             clientPermissions: ["SEND_MESSAGES"],
-            userPermissions: ["SEND_MESSAGES"],
+            userPermissions: ["SEND_MESSAGES", "MANAGE_GUILD"],
             channel: 'guild',       // guild, dm
             args: [
                 {
@@ -71,19 +71,49 @@ export default class ModuleCommand extends Command {
                 }
                 break;
             case 'uptime':
-
+                if(args.status === 'enable') {
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {uptimeCommand: true});
+                    await message.util.send('Command "Uptime" wurde aktiviert!');
+                } else if (args.status === 'disable') {
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {uptimeCommand: false});
+                    await message.util.send('Command "uptime" wurde deaktiviert!');
+                }
                 break;
             case 'box':
-
+                if(args.status === 'enable') {
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {boxCommand: true});
+                    await message.util.send('Command "Box" wurde aktiviert!');
+                } else if (args.status === 'disable') {
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {boxCommand: false});
+                    await message.util.send('Command "Box" wurde deaktiviert!');
+                }
                 break;
             case 'rps':
-
+                if(args.status === 'enable') {
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {rpsCommand: true});
+                    await message.util.send('Command "rps" wurde aktiviert!');
+                } else if (args.status === 'disable') {
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {rpsCommand: false});
+                    await message.util.send('Command "rps" wurde deaktiviert!');
+                }
                 break;
             case 'clear':
-
+                if(args.status === 'enable') {
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {goodbyeMessages: true});
+                    await message.util.send('Command "clear" wurde aktiviert!');
+                } else if (args.status === 'disable') {
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {goodbyeMessages: false});
+                    await message.util.send('Command "clear" wurde deaktiviert!');
+                }
                 break;
             case 'report':
-
+                if(args.status === 'enable') {
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {reportCommand: true});
+                    await message.util.send('Command "report" wurde aktiviert!');
+                } else if (args.status === 'disable') {
+                    await botSettings.findOneAndUpdate({guildId: message.guild.id}, {reportCommand: false});
+                    await message.util.send(' Command "report" wurde deaktiviert!');
+                }
                 break;
             default:
             await message.util.send('Der command wurde nicht gefunden!')

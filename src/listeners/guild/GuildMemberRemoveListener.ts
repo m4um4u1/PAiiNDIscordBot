@@ -4,6 +4,7 @@ import { GiphyFetch } from "@giphy/js-fetch-api";
 import { Channel, MessageEmbed, TextChannel } from "discord.js";
 import { stripIndents } from 'common-tags';
 import Utilities from "../../structures/Utilities";
+import botSettings from "../../models/botsettings.model";
 require('isomorphic-fetch');
 
 export default class GuildMemberRemoveListener extends Listener {
@@ -18,6 +19,9 @@ export default class GuildMemberRemoveListener extends Listener {
 
         const gf: GiphyFetch = new GiphyFetch(this.client.config.giphyToken);
         const dbChannels = await dbGuild.getChannelsById(member.guild.id);
+        const settings = await botSettings.findOne({ guildId: member.guild.id })
+
+        if(settings.goodbyeMessages) {
 
         let wlch: Channel = await this.client.channels.fetch(dbChannels.welcomeChannel);
         if (!wlch) return;
@@ -81,4 +85,5 @@ export default class GuildMemberRemoveListener extends Listener {
      await (lch as TextChannel).send(logMessage);
     }
     }
+}
 }
