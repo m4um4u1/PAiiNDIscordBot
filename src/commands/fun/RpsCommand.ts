@@ -20,44 +20,45 @@ export default class RpsCommand extends Command {
     }
 
     public async exec(message: Message): Promise<void> {
-        const settings = await botSettings.findOne({ guildId: message.guild.id });
-        const chooseArr: string[] = ["🗻", "📰", "✂"];
+        const settings = await botSettings.findOne({guildId: message.guild.id});
 
-        if(settings.rpsCommand){
-        const embed: MessageEmbed = new MessageEmbed()
-            .setColor("#ffffff")
-            .setFooter(
-                message.guild.me.displayName,
-                this.client.user.displayAvatarURL()
-            )
-            .setDescription("Wähle Stein, Schere oder Papier!")
-            .setTimestamp();
+        if (settings.rpsCommand) {
+            const chooseArr: string[] = ["🗻", "📰", "✂"];
+            const embed: MessageEmbed = new MessageEmbed()
+                .setColor("#ffffff")
+                .setFooter(
+                    message.guild.me.displayName,
+                    this.client.user.displayAvatarURL()
+                )
+                .setDescription("Wähle Stein, Schere oder Papier!")
+                .setTimestamp();
 
-        const m: Message = await message.channel.send(embed);
-        const reacted = await Utilities.promptMessage(m, message.author, 30, chooseArr);
+            const m: Message = await message.channel.send(embed);
+            const reacted = await Utilities.promptMessage(m, message.author, 30, chooseArr);
 
-        const botChoice: string = chooseArr[Math.floor(Math.random() * chooseArr.length)];
+            const botChoice: string = chooseArr[Math.floor(Math.random() * chooseArr.length)];
 
-        const result: string = getResult(reacted, botChoice);
+            const result: string = getResult(reacted, botChoice);
 
-        embed.setDescription("").addField(result, `${reacted} vs ${botChoice}`);
+            embed.setDescription("").addField(result, `${reacted} vs ${botChoice}`);
 
-        await m.edit(embed);
+            await m.edit(embed);
 
-        function getResult(me, clientChosen): string {
-            if (
-                (me === "🗻" && clientChosen === "✂") ||
-                (me === "📰" && clientChosen === "🗻") ||
-                (me === "✂" && clientChosen === "📰")
-            ) {
-                return "Du hast gewonnen!";
-            } else if (me === clientChosen) {
-                return "Versuche es nochmal!";
-            } else {
-                return "Du hast verloren!";
+            await m.reactions.removeAll();
+
+            function getResult(me, clientChosen): string {
+                if (
+                    (me === "🗻" && clientChosen === "✂") ||
+                    (me === "📰" && clientChosen === "🗻") ||
+                    (me === "✂" && clientChosen === "📰")
+                ) {
+                    return "Du hast gewonnen!";
+                } else if (me === clientChosen) {
+                    return "Versuche es nochmal!";
+                } else {
+                    return "Du hast verloren!";
+                }
             }
         }
-
     }
-}
 }
