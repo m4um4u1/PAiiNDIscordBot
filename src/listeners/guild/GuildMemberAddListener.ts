@@ -48,7 +48,7 @@ export default class GuildMemberAddListener extends Listener {
                     color: "AQUA",
                     title: `Willkommen :wave:`
                 })
-                    .setDescription([`Willkommen ${member.user.username}, vergiss nicht die Regeln in ${(rlch as TextChannel)} zu bestätigen!`])
+                    .setDescription([`Willkommen **${member.user.username}**, vergiss nicht die Regeln in ${(rlch as TextChannel)} zu bestätigen!`])
                     .setImage(responseFinal.images.fixed_height.url)
                     .setTimestamp();
 
