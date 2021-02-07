@@ -40,7 +40,7 @@ export default class GuildMemberRemoveListener extends Listener {
         await gf.search('goodbye', {sort: 'relevant', type: 'gifs'})
             .then((gifs) => {
                 let totalResponses = gifs.data.length;
-                let responseIndex = Math.floor(Math.random() * 10 + 1) % totalResponses;
+                let responseIndex = Math.floor(Math.random() * 10 + 10) % totalResponses;
                 let responseFinal = gifs.data[responseIndex];
                 const replyMessage = new MessageEmbed({
                     color: "WHITE",
